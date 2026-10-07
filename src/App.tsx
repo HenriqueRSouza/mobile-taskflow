@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import { Layout } from "./components/Layout/Layout";
 import { Today } from "./pages/Today/Today";
 import { Upcoming } from "./pages/Upcoming/Upcoming";
