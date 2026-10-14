@@ -4,8 +4,10 @@ import "./TaskCard.css";
 type TaskCardProps = {
     tarefa: Tarefa;
     aoExcluir: (id: string) => void;
+    aoEditar: (tarefa: Tarefa) => void;
+    aoAlternarConclusao: (tarefa: Tarefa) => void;
 };
-export function TaskCard({ tarefa, aoExcluir }: Readonly<TaskCardProps>) {
+export function TaskCard({ tarefa, aoExcluir, aoEditar, aoAlternarConclusao }: Readonly<TaskCardProps>) {
     return (
     <article
     className={
@@ -22,6 +24,7 @@ export function TaskCard({ tarefa, aoExcluir }: Readonly<TaskCardProps>) {
     ? "Reabrir tarefa"
     : "Concluir tarefa"
     }
+    onClick={() => aoAlternarConclusao(tarefa)}
     >
     {tarefa.concluida ? (
     <CircleCheckBig size={22} />
@@ -33,7 +36,11 @@ export function TaskCard({ tarefa, aoExcluir }: Readonly<TaskCardProps>) {
     <div className="task-card__header">
     <h3>{tarefa.titulo}</h3>
     <div className="task-card__actions">
-    <button type="button" aria-label="Editar tarefa">
+    <button
+    type="button"
+    aria-label="Editar tarefa"
+    onClick={() => aoEditar(tarefa)}
+    >
     <Pencil size={17} />
     </button>
     <button
