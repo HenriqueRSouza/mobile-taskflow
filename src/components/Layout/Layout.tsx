@@ -33,9 +33,9 @@ export function Layout() {
 
   return (
     <div className="app-layout">
-      <Sidebar />
+      <Sidebar aoNovaTarefa={abrirCriacao} />
       <div className="app-layout__content">
-        <Header />
+        <Header aoNovaTarefa={abrirCriacao} />
         <main className="app-layout__main">
           <Outlet context={{ abrirCriacao, abrirEdicao }} />
         </main>
